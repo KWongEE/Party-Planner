@@ -1,0 +1,18 @@
+<h1>Submit a Party</h1>
+<% if @error %>
+  <%= @error %>
+<% end %>
+<form action="/new" method="post">
+
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name" value="<%=@error_name%>"><br>
+
+  <label for="location"> Location:</label>
+  <input type="text" id="location" name="location" value="<%=@error_location%>"><br>
+
+  <label for="description"> Description</label>
+  <input type="text" id="description" name="description" value="<%=@error_description%>"><br>
+
+  <button type="submit">Add Party</button><br>
+</form>
+<a class ="back" href="/">Home</a>

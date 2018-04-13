@@ -1,0 +1,12 @@
+---
+title: "Party Planner"
+type: "challenge"
+description: "Build a web app with Sinatra and Active Record to keep track of who to invite to your parties."
+tags: "sinatra, activerecord, migrations, er-diagrams"
+behaviors:
+  - sinatra
+  - sinatra_activerecord
+  - ruby_and_rspec
+  - capybara
+ignore:
+- "party-planner.md"

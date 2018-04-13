@@ -1,0 +1,36 @@
+<h1>Name:<%=@party.name%></h1>
+<h2>Location:<%=@party.location%></h2>
+<p>Description:<%=@party.description%></p>
+<p>Invitees:
+  <%@invites.each do |invite|%>
+    <%@friend_first = Friend.find(invite.friend_id).first_name%>
+    <%@friend_last = Friend.find(invite.friend_id).last_name%>
+    <%@inviteID = invite.id%>
+    <li><%=@friend_first%> <%=@friend_last%>
+      <form class="deletefriend" action=<%="/invite/#{@inviteID}"%> method="post">
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="submit" value="Delete Friend">
+      </form>
+    </li>
+    <% end %>
+</p>
+
+<div>Invite Friend:
+  <form action=<%="/parties/#{@id}"%> method="post">
+      <select class = "" name="invite_friend">
+        <%@friendlist.each do |friend|%>
+          <option name="<friend>" value="<%=friend.id%>">
+            <%=friend.first_name%> <%=friend.last_name%>
+          </option>
+        <% end %>
+      </select>
+    <button type="submit">Add Friend</button><br>
+  </form>
+</div>
+
+<a class ="back" href="/">Home</a>
+<!-- Delete -->
+<form class="deleteBtn" action=<%="/parties/#{@id}"%> method="post">
+  <input type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Delete Party?">
+</form>
